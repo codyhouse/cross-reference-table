@@ -18,4 +18,13 @@ jQuery(document).ready(function($){
 		}
 	});
 
+	//scroll the table (scroll value equal to column width) when clicking on the .cd-scroll-right arrow
+ 	$('.cd-scroll-right').on('click', function(){
+ 		$this= $(this);
+ 		var column_width = $(this).siblings('.cd-table-container').find('.cd-table-column').eq(0).css('width').replace('px', ''),
+ 			new_left_scroll = parseInt($('.cd-table-container').scrollLeft()) + parseInt(column_width);
+ 		
+ 		$('.cd-table-container').animate( {scrollLeft: new_left_scroll}, 200 );
+ 		$this.hide();
+ 	});
 });
